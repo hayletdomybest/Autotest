@@ -1,0 +1,1 @@
+This is my new platform for test Autoupdate

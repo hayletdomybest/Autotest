@@ -2,7 +2,7 @@
 <AutoUpdate> 
     <update> 
         <version>1.0.0.1</version> 
-        <url>https://github.com/t628x7600/Autotest/raw/master/AutoUpdate/TestApp/bin/Debug/TestApp.exe</url> 
+        <url>https://raw.githubusercontent.com/t628x7600/Autotest/master/AutoUpdate/TestApp/bin/Debug/TestApp.exe</url> 
         <filePath></filePath>
         <FileName>TestApp.exe</FileName>
         <description></description> 

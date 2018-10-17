@@ -3,9 +3,9 @@
     <update> 
         <version>1.0.0.1</version> 
         <url>https://raw.githubusercontent.com/henryxrl/SharpUpdate/master/TestApp/bin/Debug/TestApp.exe</url> 
-        <filePath>./newApp.exe</filePath>
-        <description>Update: 10/06/2018:
-        1. Updated a label.</description> 
+        <filePath></filePath>
+        <FileName>TestApp.exe</FileName>
+        <description></description> 
         <launchArgs></launchArgs> 
     </update>
 </AutoUpdate>

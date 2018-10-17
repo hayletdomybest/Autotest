@@ -1,7 +1,7 @@
 <?xml version="1.0"?> 
 <AutoUpdate> 
     <update> 
-        <version>1.0.0.0</version> 
+        <version>1.0.0.1</version> 
         <url>https://raw.githubusercontent.com/henryxrl/SharpUpdate/master/TestApp/bin/Debug/TestApp.exe</url> 
         <filePath>./TestApp.exe</filePath>
         <description>Update: 10/06/2018:

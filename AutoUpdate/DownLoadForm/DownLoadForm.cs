@@ -14,7 +14,7 @@ namespace DownLoadForm
     public partial class DownLoadForm : Form
     {
         private readonly string currentPath = Environment.CurrentDirectory;
-        //private readonly string UpdateExe = "TestApp.exe";
+        private readonly string ExeName = "TestApp.exe";
         private string arg;
 
         private Version version = null;
@@ -149,7 +149,7 @@ namespace DownLoadForm
                 try
                 {
                     //client.DownloadFileAsync(uri,SavePath);
-                    string target = GetDir(currentPath,UpdateExe);
+                    string target = GetDir(currentPath, ExeName);
                     using (Process p = new Process())
                     {
                         p.StartInfo.FileName = target;

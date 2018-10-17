@@ -3,7 +3,7 @@
     <update> 
         <version>1.0.0.1</version> 
         <url>https://raw.githubusercontent.com/henryxrl/SharpUpdate/master/TestApp/bin/Debug/TestApp.exe</url> 
-        <filePath></filePath>
+        <filePath>DownLoad_Information</filePath>
         <FileName>TestApp.exe</FileName>
         <description></description> 
         <launchArgs></launchArgs> 

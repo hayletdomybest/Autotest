@@ -15,12 +15,14 @@ namespace TestApp
 {
     public partial class TestForm : Form
     {
-        string XmlUri = @"https://raw.githubusercontent.com/t628x7600/Autotest/master/project.xml";
-        string DownLoadInfo = @"info.xml";
-        string DownLoadPath = @"DownLoad_Information";
-        
-        string DownLoadFormName = "DownLoadForm.exe";
-        string DownLoadFormPath = Environment.CurrentDirectory;
+        private string PassArg ="";
+
+        private string XmlUri = @"https://raw.githubusercontent.com/t628x7600/Autotest/master/project.xml";
+        private string DownLoadInfo = @"info.xml";
+        private string DownLoadPath = @"DownLoad_Information";
+
+        private string DownLoadFormName = "DownLoadForm.exe";
+        private string DownLoadFormPath = Environment.CurrentDirectory;
         AutoUpdate.AutoUpdate UpdateInterface;
         public TestForm()
         {
@@ -42,17 +44,33 @@ namespace TestApp
             ServicePointManager.ServerCertificateValidationCallback =
                 (sender, cert, chain, sslPolicyErrors) => true;//ignore ssl Certificate
             WebClient client = new WebClient();
+            client.DownloadFileCompleted += DownLoadComplete;
             Uri uri = new Uri(XmlUri);
             string SavePath = GetDir(Environment.CurrentDirectory, DownLoadPath);
             if (!Directory.Exists(SavePath))
                 Directory.CreateDirectory(SavePath);
             SavePath = GetDir(SavePath, DownLoadInfo);
+            PassArg = SavePath;
             try
             {
-                //client.DownloadFileAsync(uri,SavePath);
+                client.DownloadFileAsync(uri,SavePath);
+            }
+            catch
+            {
+                MessageBox.Show("網路異常");
+            
+            }
+
+        
+        }
+
+        private void DownLoadComplete(object sender, AsyncCompletedEventArgs e)
+        {
+            try
+            {
                 string target = GetDir(DownLoadFormPath, DownLoadFormName);
                 ProcessStartInfo pInfo = new ProcessStartInfo(target);
-                pInfo.Arguments = SavePath;
+                pInfo.Arguments = PassArg;
                 using (Process p = new Process())
                 {
                     p.StartInfo = pInfo;
@@ -63,10 +81,8 @@ namespace TestApp
             catch
             {
                 MessageBox.Show("網路異常");
-            
-            }
 
-        
+            }           
         }
 
         private void Form1_Load(object sender, EventArgs e)

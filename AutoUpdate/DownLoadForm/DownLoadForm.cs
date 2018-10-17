@@ -40,6 +40,7 @@ namespace DownLoadForm
             {
                 XmlDocument xmldoc = new XmlDocument();
                 xmldoc.Load(arg);
+                
                 XmlNodeList xmlUpdate = xmldoc.SelectNodes("AutoUpdate/update");
                 XmlNode node = xmlUpdate.Item(0);
                 version  = new Version(node["version"].InnerText);
@@ -72,6 +73,7 @@ namespace DownLoadForm
                 string SavePath = (this.FilePath.Length == 0) ? currentPath :
                     GetDir(currentPath, FilePath);
                 SavePath = GetDir(SavePath, this.FileName);
+                lab_FiileName.Text = FileName;
                 DownloadClient.DownloadFileAsync(FileUri, SavePath);
             }
             catch
@@ -88,7 +90,7 @@ namespace DownLoadForm
             bar_rate.Value = e.ProgressPercentage;
 
         }
-        void DownloadCompletedEventHandler(object sender, System.ComponentModel.AsyncCompletedEventArgs e)
+        void DownloadCompletedEventHandler(object sender, AsyncCompletedEventArgs e)
         {
             IsUpdate = true;
             btn_Cancel.Text = "離開";
